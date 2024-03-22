@@ -1,6 +1,7 @@
 ﻿using CozyFileService.Application;
 using CozyFileService.Infrastructure;
 using CozyFileService.Persistence;
+using CozyFileService.WebApi.Middleware;
 
 namespace CozyFileService.WebApi
 {
@@ -29,6 +30,8 @@ namespace CozyFileService.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCustomExceptionHandler();
 
             app.UseHttpsRedirection();
 
