@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CozyFileService.Application\CozyFileService.Application.csproj" />
+    <ProjectReference Include="..\CozyFileService.Identity\CozyFileService.Identity.csproj" />
     <ProjectReference Include="..\CozyFileService.Infrastructure\CozyFileService.Infrastructure.csproj" />
     <ProjectReference Include="..\CozyFileService.Persistence\CozyFileService.Persistence.csproj" />
   </ItemGroup>

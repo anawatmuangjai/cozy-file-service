@@ -1,7 +1,11 @@
 ﻿using CozyFileService.Application;
+using CozyFileService.Identity;
+using CozyFileService.Identity.Models;
 using CozyFileService.Infrastructure;
 using CozyFileService.Persistence;
 using CozyFileService.WebApi.Middleware;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CozyFileService.WebApi
 {
@@ -13,6 +17,7 @@ namespace CozyFileService.WebApi
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+            builder.Services.AddIdentityServices(builder.Configuration);
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
@@ -24,6 +29,14 @@ namespace CozyFileService.WebApi
 
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            app.MapIdentityApi<ApplicationUser>();
+
+            app.MapPost("/Logout", async (ClaimsPrincipal user, SignInManager<ApplicationUser> signInManager) =>
+            {
+                await signInManager.SignOutAsync();
+                return TypedResults.Ok();
+            });
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

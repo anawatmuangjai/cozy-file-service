@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozyFileService.Infrastruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.WebApi", "src\CozyFileService.WebApi\CozyFileService.WebApi.csproj", "{B9075783-7767-44AF-9F6D-99690ABD0AB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.Identity", "src\CozyFileService.Identity\CozyFileService.Identity.csproj", "{A53AC987-5AEF-43CA-A0F6-F503CF021736}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B9075783-7767-44AF-9F6D-99690ABD0AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9075783-7767-44AF-9F6D-99690ABD0AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9075783-7767-44AF-9F6D-99690ABD0AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53AC987-5AEF-43CA-A0F6-F503CF021736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53AC987-5AEF-43CA-A0F6-F503CF021736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53AC987-5AEF-43CA-A0F6-F503CF021736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53AC987-5AEF-43CA-A0F6-F503CF021736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{D111F14A-549F-4E89-ABDC-131144247420} = {323240FF-36DB-434B-8BEB-C11A120CF710}
 		{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A} = {323240FF-36DB-434B-8BEB-C11A120CF710}
 		{B9075783-7767-44AF-9F6D-99690ABD0AB5} = {E53B11CC-819D-4440-A1B7-7A23377F2734}
+		{A53AC987-5AEF-43CA-A0F6-F503CF021736} = {323240FF-36DB-434B-8BEB-C11A120CF710}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98239854-4799-4018-9A2E-A39368AF64A6}
