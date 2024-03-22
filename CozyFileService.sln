@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozyFileService.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozyFileService.Persistence", "src\CozyFileService.Persistence\CozyFileService.Persistence.csproj", "{D111F14A-549F-4E89-ABDC-131144247420}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.Infrastructure", "src\CozyFileService.Infrastructure\CozyFileService.Infrastructure.csproj", "{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D111F14A-549F-4E89-ABDC-131144247420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D111F14A-549F-4E89-ABDC-131144247420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D111F14A-549F-4E89-ABDC-131144247420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{B13ED04A-3178-4B2C-90DD-7A02C949275E} = {AA4776BD-12F9-45FD-9C8A-63468756012B}
 		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0} = {AA4776BD-12F9-45FD-9C8A-63468756012B}
 		{D111F14A-549F-4E89-ABDC-131144247420} = {323240FF-36DB-434B-8BEB-C11A120CF710}
+		{D7DF71C5-3FB0-43AA-90DB-030BC7D77C3A} = {323240FF-36DB-434B-8BEB-C11A120CF710}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98239854-4799-4018-9A2E-A39368AF64A6}
