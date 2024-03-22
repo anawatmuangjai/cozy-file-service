@@ -14,8 +14,9 @@ namespace CozyFileService.Identity
 
             services.AddAuthorizationBuilder();
 
+            var connectionString = configuration["ConnectionStrings:CozyFileServiceIdentity"];
             services.AddDbContext<CozyFileServiceIdentityDbContext>(options =>
-                           options.UseSqlServer(configuration.GetConnectionString("CozyFileServiceIdentityConnection")));
+                           options.UseSqlServer(connectionString));
 
             services.AddIdentityCore<ApplicationUser>()
                 .AddEntityFrameworkStores<CozyFileServiceIdentityDbContext>()
