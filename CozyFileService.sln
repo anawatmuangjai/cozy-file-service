@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{78E54ED9-BB27-4BA6-BE5B-37044946D8A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4355042E-9C76-417B-9073-73D8A74A6E29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{E53B11CC-819D-4440-A1B7-7A23377F2734}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AA4776BD-12F9-45FD-9C8A-63468756012B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{323240FF-36DB-434B-8BEB-C11A120CF710}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{FD2CF487-517A-4DBB-BE7C-750685323C8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.Domain", "src\CozyFileService.Domain\CozyFileService.Domain.csproj", "{B13ED04A-3178-4B2C-90DD-7A02C949275E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.Application", "src\CozyFileService.Application\CozyFileService.Application.csproj", "{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B13ED04A-3178-4B2C-90DD-7A02C949275E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13ED04A-3178-4B2C-90DD-7A02C949275E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13ED04A-3178-4B2C-90DD-7A02C949275E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13ED04A-3178-4B2C-90DD-7A02C949275E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E53B11CC-819D-4440-A1B7-7A23377F2734} = {78E54ED9-BB27-4BA6-BE5B-37044946D8A8}
+		{AA4776BD-12F9-45FD-9C8A-63468756012B} = {78E54ED9-BB27-4BA6-BE5B-37044946D8A8}
+		{323240FF-36DB-434B-8BEB-C11A120CF710} = {78E54ED9-BB27-4BA6-BE5B-37044946D8A8}
+		{FD2CF487-517A-4DBB-BE7C-750685323C8D} = {78E54ED9-BB27-4BA6-BE5B-37044946D8A8}
+		{B13ED04A-3178-4B2C-90DD-7A02C949275E} = {AA4776BD-12F9-45FD-9C8A-63468756012B}
+		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0} = {AA4776BD-12F9-45FD-9C8A-63468756012B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98239854-4799-4018-9A2E-A39368AF64A6}
+	EndGlobalSection
+EndGlobal
