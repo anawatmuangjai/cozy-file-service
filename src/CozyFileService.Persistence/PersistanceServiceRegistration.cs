@@ -10,7 +10,7 @@ namespace CozyFileService.Persistence
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration["ConnectionStrings:Database"];
+            var connectionString = configuration["ConnectionStrings:CozyFileServiceDb"];
             services.AddDbContext<CozyFileServiceDbContext>(options =>
                            options.UseSqlServer(connectionString));
 

@@ -22,4 +22,6 @@ var app = builder
 
 app.UseSerilogRequestLogging();
 
+await app.SetDatabaseAsync();
+
 app.Run();

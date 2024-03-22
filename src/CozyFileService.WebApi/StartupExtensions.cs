@@ -5,6 +5,7 @@ using CozyFileService.Infrastructure;
 using CozyFileService.Persistence;
 using CozyFileService.WebApi.Middleware;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace CozyFileService.WebApi
@@ -60,6 +61,30 @@ namespace CozyFileService.WebApi
             app.MapControllers();
 
             return app;
+        }
+
+        public static async Task SetDatabaseAsync(this WebApplication app)
+        {
+            using var scope = app.Services.CreateScope();
+            var services = scope.ServiceProvider;
+
+            try
+            {
+                var context = services.GetRequiredService<CozyFileServiceDbContext>();
+
+                if (context != null)
+                {
+                    // For development purposes, delete the database and apply migrations on startup
+                    await context.Database.EnsureDeletedAsync();
+
+                    await context.Database.MigrateAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred while migrating the database.");
+            }
         }
     }
 }
