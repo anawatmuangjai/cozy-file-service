@@ -3,12 +3,14 @@ using CozyFileService.Application.Features.ManageFiles.Commands.DeleteFile;
 using CozyFileService.Application.Features.ManageFiles.Commands.UpdateFile;
 using CozyFileService.Application.Features.ManageFiles.Queries.GetFilesList;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CozyFileService.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class FileController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -34,11 +36,12 @@ namespace CozyFileService.WebApi.Controllers
             if (file == null || file.Length <= 0)
                 return BadRequest("Invalid file.");
 
-            var command = new CreateFileCommand 
+            var command = new CreateFileCommand
             {
                 FileName = file.FileName,
                 FileType = file.ContentType,
                 FileSize = file.Length,
+                ContentStream = file.OpenReadStream()
             };
 
             var response = await _mediator.Send(command);
@@ -50,6 +53,7 @@ namespace CozyFileService.WebApi.Controllers
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize]
         public async Task<ActionResult> Update([FromBody] UpdateFileCommand updateFileCommand)
         {
             await _mediator.Send(updateFileCommand);
@@ -60,6 +64,7 @@ namespace CozyFileService.WebApi.Controllers
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize]
         public async Task<ActionResult> Delete(Guid id)
         {
             var command = new DeleteFileCommand() { Id = id };

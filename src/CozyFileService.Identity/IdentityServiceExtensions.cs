@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CozyFileService.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace CozyFileService.Identity
 {
@@ -10,8 +11,7 @@ namespace CozyFileService.Identity
     {
         public static void AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
-
+            services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
             services.AddAuthorizationBuilder();
 
             var connectionString = configuration["ConnectionStrings:CozyFileServiceIdentity"];

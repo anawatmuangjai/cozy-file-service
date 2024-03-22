@@ -15,11 +15,6 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.CreateFile
             RuleFor(p => p.FileSize)
                 .GreaterThan(0).WithMessage("{PropertyName} is required.");
 
-            RuleFor(p => p.ContentAsBase64String)
-                .NotNull().WithMessage("{PropertyName} is required.");
-
-            RuleFor(p => p.FilePath)
-                .NotNull().WithMessage("{PropertyName} is required.");
         }
     }
 }

@@ -13,9 +13,12 @@ namespace CozyFileService.Application.Profiles
         {
             // CreateMap<Source, Destination>();
             CreateMap<UploadedFile, FilesListViewModel>().ReverseMap();
+
             CreateMap<UploadedFile, CreateFileCommand>().ReverseMap();
             CreateMap<UploadedFile, UpdateFileCommand>().ReverseMap();
             CreateMap<UploadedFile, DeleteFileCommand>().ReverseMap();
+
+            CreateMap<UploadedFile, CreateFileDto>().ReverseMap();
         }
     }
 }

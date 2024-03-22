@@ -1,5 +1,6 @@
 using CozyFileService.WebApi;
 using Serilog;
+using Microsoft.Extensions.Azure;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()

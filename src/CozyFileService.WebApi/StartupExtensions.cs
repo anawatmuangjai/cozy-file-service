@@ -1,11 +1,14 @@
 ﻿using CozyFileService.Application;
+using CozyFileService.Application.Contracts;
 using CozyFileService.Identity;
 using CozyFileService.Identity.Models;
 using CozyFileService.Infrastructure;
 using CozyFileService.Persistence;
 using CozyFileService.WebApi.Middleware;
+using CozyFileService.WebApi.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 
 namespace CozyFileService.WebApi
@@ -20,10 +23,42 @@ namespace CozyFileService.WebApi
             builder.Services.AddPersistenceServices(builder.Configuration);
             builder.Services.AddIdentityServices(builder.Configuration);
 
+            builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+            builder.Services.AddHttpContextAccessor();
+
             builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
             builder.Services.AddCors();
+
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "CozyFileService.WebApi", Version = "v1" });
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
+            });
 
             return builder.Build();
         }
@@ -70,14 +105,21 @@ namespace CozyFileService.WebApi
 
             try
             {
-                var context = services.GetRequiredService<CozyFileServiceDbContext>();
+                var dbContext = services.GetRequiredService<CozyFileServiceDbContext>();
 
-                if (context != null)
+                if (dbContext != null)
                 {
                     // For development purposes, delete the database and apply migrations on startup
-                    await context.Database.EnsureDeletedAsync();
+                    // await dbContext.Database.EnsureDeletedAsync();
 
-                    await context.Database.MigrateAsync();
+                    await dbContext.Database.MigrateAsync();
+                }
+
+                var identityContext = services.GetRequiredService<CozyFileServiceIdentityDbContext>();
+
+                if (identityContext != null)
+                {
+                    await identityContext.Database.MigrateAsync();
                 }
             }
             catch (Exception ex)
