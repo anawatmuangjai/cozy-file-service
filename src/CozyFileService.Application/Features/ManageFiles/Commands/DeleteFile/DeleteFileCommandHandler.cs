@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CozyFileService.Application.Contracts.Persistance;
+using CozyFileService.Application.Contracts.Persistence;
 using MediatR;
 
 namespace CozyFileService.Application.Features.ManageFiles.Commands.DeleteFile
@@ -7,9 +7,9 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.DeleteFile
     public class DeleteFileCommandHandler : IRequestHandler<DeleteFileCommand>
     {
         private readonly IMapper _mapper;
-        private readonly IUploadedFileRespository _uploadedFileRepository;
+        private readonly IUploadedFileRepository _uploadedFileRepository;
 
-        public DeleteFileCommandHandler(IMapper mapper, IUploadedFileRespository uploadedFileRepository)
+        public DeleteFileCommandHandler(IMapper mapper, IUploadedFileRepository uploadedFileRepository)
         {
             _mapper = mapper;
             _uploadedFileRepository = uploadedFileRepository;

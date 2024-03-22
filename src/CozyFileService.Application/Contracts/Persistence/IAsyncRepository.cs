@@ -1,4 +1,4 @@
-﻿namespace CozyFileService.Application.Contracts.Persistance
+﻿namespace CozyFileService.Application.Contracts.Persistence
 {
     public interface IAsyncRepository<T> where T : class
     {

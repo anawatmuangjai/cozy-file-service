@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CozyFileService.Application.Contracts.Persistance;
+using CozyFileService.Application.Contracts.Persistence;
 using MediatR;
 
 namespace CozyFileService.Application.Features.ManageFiles.Queries.GetFilesList
@@ -7,9 +7,9 @@ namespace CozyFileService.Application.Features.ManageFiles.Queries.GetFilesList
     public class GetFilesListQueryHandler : IRequestHandler<GetFilesListQuery, List<FilesListViewModel>>
     {
         private readonly IMapper _mapper;
-        private readonly IUploadedFileRespository _uploadedFileRepository;
+        private readonly IUploadedFileRepository _uploadedFileRepository;
 
-        public GetFilesListQueryHandler(IMapper mapper, IUploadedFileRespository uploadedFileRepository)
+        public GetFilesListQueryHandler(IMapper mapper, IUploadedFileRepository uploadedFileRepository)
         {
             _mapper = mapper;
             _uploadedFileRepository = uploadedFileRepository;

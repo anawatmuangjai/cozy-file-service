@@ -15,9 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{FD2CF487-517A-4DBB-BE7C-750685323C8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.Domain", "src\CozyFileService.Domain\CozyFileService.Domain.csproj", "{B13ED04A-3178-4B2C-90DD-7A02C949275E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozyFileService.Domain", "src\CozyFileService.Domain\CozyFileService.Domain.csproj", "{B13ED04A-3178-4B2C-90DD-7A02C949275E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozyFileService.Application", "src\CozyFileService.Application\CozyFileService.Application.csproj", "{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozyFileService.Application", "src\CozyFileService.Application\CozyFileService.Application.csproj", "{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozyFileService.Persistence", "src\CozyFileService.Persistence\CozyFileService.Persistence.csproj", "{D111F14A-549F-4E89-ABDC-131144247420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D111F14A-549F-4E89-ABDC-131144247420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D111F14A-549F-4E89-ABDC-131144247420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D111F14A-549F-4E89-ABDC-131144247420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D111F14A-549F-4E89-ABDC-131144247420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{FD2CF487-517A-4DBB-BE7C-750685323C8D} = {78E54ED9-BB27-4BA6-BE5B-37044946D8A8}
 		{B13ED04A-3178-4B2C-90DD-7A02C949275E} = {AA4776BD-12F9-45FD-9C8A-63468756012B}
 		{EF92DCF5-E7DD-4DB0-A8F3-0345DEA026B0} = {AA4776BD-12F9-45FD-9C8A-63468756012B}
+		{D111F14A-549F-4E89-ABDC-131144247420} = {323240FF-36DB-434B-8BEB-C11A120CF710}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98239854-4799-4018-9A2E-A39368AF64A6}

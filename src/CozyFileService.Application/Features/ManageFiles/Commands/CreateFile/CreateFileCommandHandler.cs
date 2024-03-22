@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CozyFileService.Application.Contracts.Persistance;
+using CozyFileService.Application.Contracts.Persistence;
 using CozyFileService.Domain.Entities;
 using MediatR;
 
@@ -8,9 +8,9 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.CreateFile
     public class CreateFileCommandHandler : IRequestHandler<CreateFileCommand, CreateFileCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUploadedFileRespository _uploadedFileRespository;
+        private readonly IUploadedFileRepository _uploadedFileRespository;
 
-        public CreateFileCommandHandler(IMapper mapper, IUploadedFileRespository uploadedFileRespository)
+        public CreateFileCommandHandler(IMapper mapper, IUploadedFileRepository uploadedFileRespository)
         {
             _mapper = mapper;
             _uploadedFileRespository = uploadedFileRespository;
