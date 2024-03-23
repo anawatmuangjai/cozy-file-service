@@ -50,7 +50,7 @@ namespace CozyFileServive.Application.UnitTests.ManageFiles.Commands
                 ContentStream = new MemoryStream(new byte[1024])
             };
 
-            _mockLoggedInUserService.Setup(u => u.UserName).Returns("testuser");
+            _mockLoggedInUserService.Setup(u => u.UserId).Returns("userId");
             _mockLoggedInUserService.Setup(u => u.Email).Returns("test@example.com");
 
             _mockFileStorageService
@@ -75,7 +75,7 @@ namespace CozyFileServive.Application.UnitTests.ManageFiles.Commands
             Assert.True(response.Success);
             Assert.Null(response.ValidationErrors);
 
-            _mockFileStorageService.Verify(s => s.UploadFileAsync("testuser", "TestFile", createFileCommand.ContentStream), Times.Once);
+            _mockFileStorageService.Verify(s => s.UploadFileAsync("userId", "TestFile", createFileCommand.ContentStream), Times.Once);
             _mockUploadedFileRepository.Verify(r => r.AddAsync(It.IsAny<UploadedFile>()), Times.Once);
             _mockEmailService.Verify(e => e.SendEmailAsync(It.IsAny<Email>()), Times.Once);
             

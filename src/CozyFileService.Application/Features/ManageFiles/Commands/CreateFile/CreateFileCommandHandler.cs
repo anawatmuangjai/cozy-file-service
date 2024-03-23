@@ -54,7 +54,7 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.CreateFile
                     FileSize = request.FileSize,
                 };
 
-                var path = await _fileStorageService.UploadFileAsync(_loggedInUserService.UserName, uploadedFile.FileName, request.ContentStream);
+                var path = await _fileStorageService.UploadFileAsync(_loggedInUserService.UserId, uploadedFile.FileName, request.ContentStream);
                 _logger.LogInformation($"Uploaded file {uploadedFile.FileName} to blob storage successfully.");
 
                 uploadedFile.FilePath = path;

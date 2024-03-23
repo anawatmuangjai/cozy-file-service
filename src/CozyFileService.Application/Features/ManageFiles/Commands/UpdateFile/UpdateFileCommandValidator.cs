@@ -9,10 +9,6 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.UpdateFile
             RuleFor(p => p.FileName)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
-
-            RuleFor(p => p.FilePath)
-                .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull();
         }
     }
 }

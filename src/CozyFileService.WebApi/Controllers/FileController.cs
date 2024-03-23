@@ -1,6 +1,7 @@
 ﻿using CozyFileService.Application.Features.ManageFiles.Commands.CreateFile;
 using CozyFileService.Application.Features.ManageFiles.Commands.DeleteFile;
 using CozyFileService.Application.Features.ManageFiles.Commands.UpdateFile;
+using CozyFileService.Application.Features.ManageFiles.Queries.GetFileContent;
 using CozyFileService.Application.Features.ManageFiles.Queries.GetFilesList;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -70,6 +71,17 @@ namespace CozyFileService.WebApi.Controllers
             var command = new DeleteFileCommand() { Id = id };
             await _mediator.Send(command);
             return NoContent();
+        }
+
+        [HttpGet("download/{filename}", Name = "DownloadFile")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<FileResult> DownloadFile(string filename)
+        {
+            var query = new GetFileContentQuery { FileName = filename };
+            var fileDto = await _mediator.Send(query);
+
+            return File(fileDto.Content, fileDto.ContentType, fileDto.FileName);
         }
     }
 }

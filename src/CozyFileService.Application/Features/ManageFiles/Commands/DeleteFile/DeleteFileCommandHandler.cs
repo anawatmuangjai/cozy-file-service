@@ -39,18 +39,19 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.DeleteFile
                 throw new NotFoundException(nameof(UploadedFile), request.Id);
             }
 
-            var isFileExist = await _fileStorageService.FileExistsAsync(_loggedInUserService.UserName, fileToDelete.FilePath);
+            var isFileExists = await _fileStorageService.FileExistsAsync(_loggedInUserService.UserName, fileToDelete.FileName);
 
-            if (isFileExist)
+            var isDeleted = false;
+            if (isFileExists)
             {
-                var isDeleted = await _fileStorageService.DeleteFileAsync(_loggedInUserService.UserName, fileToDelete.FilePath);
+                isDeleted = await _fileStorageService.DeleteFileAsync(_loggedInUserService.UserName, fileToDelete.FileName);
+                _logger.LogInformation($"Deleted file {fileToDelete.FileName} from blob storage successfully.");
+            }
 
-                if (isDeleted)
-                {
-                    _logger.LogInformation($"Deleted file {fileToDelete.FileName} from blob storage successfully.");
-
-                    await _uploadedFileRepository.DeleteAsync(fileToDelete);
-                }
+            if (isDeleted)
+            {
+                await _uploadedFileRepository.DeleteAsync(fileToDelete);
+                _logger.LogInformation($"Deleted file name {fileToDelete.FileName} from database successfully.");
             }
         }
     }
