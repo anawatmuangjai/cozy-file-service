@@ -39,7 +39,7 @@ namespace CozyFileService.Application.Features.ManageFiles.Commands.CreateFile
             var validator = new CreateFileCommandValidator();
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
-            if (validationResult.Errors.Any())
+            if (validationResult.Errors.Count != 0)
             {
                 createFileCommandResponse.Success = false;
                 createFileCommandResponse.ValidationErrors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
