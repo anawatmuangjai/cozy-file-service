@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Azure.Storage.Blobs;
+﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using CozyFileService.Application.Contracts.Infrastructure;
 
@@ -54,6 +49,27 @@ namespace CozyFileService.Infrastructure.FileStorage
             var blobClient = blobContainerClient.GetBlobClient(fileName);
 
             return await blobClient.ExistsAsync();
+        }
+
+        public async Task<string> UpdateFileNameAsync(string containerName, string oldFileName, string newFileName)
+        {
+            var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            var oldBlobClient = blobContainerClient.GetBlobClient(oldFileName);
+            var newBlobClient = blobContainerClient.GetBlobClient(newFileName);
+
+            // Check if the old blob exists
+            if (!await oldBlobClient.ExistsAsync())
+            {
+                throw new ArgumentException($"Blob '{oldFileName}' does not exist in the container '{containerName}'.");
+            }
+
+            // Copy the contents of the old blob to the new blob
+            await newBlobClient.StartCopyFromUriAsync(oldBlobClient.Uri);
+
+            // Delete the old blob
+            await oldBlobClient.DeleteIfExistsAsync();
+
+            return newBlobClient.Uri.ToString();
         }
     }
 }
