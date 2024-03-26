@@ -5,7 +5,9 @@ Example File Service WebAPI using ASP.NET Core, Clean Arch, MadiatR, CQRS.
 
 ## Solution Structure
 * Clean architecture
-  
+
+![](docs/imgs/solution-structure.png)
+
 ## Prerequisites
 * .NET 8
 * Storage Azurite Emulator (For local storage)
@@ -30,10 +32,15 @@ Example File Service WebAPI using ASP.NET Core, Clean Arch, MadiatR, CQRS.
 * Build solution
 
 ## API Authorizations
+  ![](docs/imgs/auth-1.png)
 * Register user from https://localhost:7134/register
 * Login and get token for authorize from https://localhost:7134/login
 * Copy token from response body and click Authorze button on top right(swagger UI) and enter Bearer {Token}
 * For Postman paste token in Authorization menu.
 
+
 ## Upload File with Postman
-- In request bodym select form-data and select file to upload.
+  ![](docs/imgs/upload-file-postman.png)
+- In request body select form-data and select file to upload.
+
+
