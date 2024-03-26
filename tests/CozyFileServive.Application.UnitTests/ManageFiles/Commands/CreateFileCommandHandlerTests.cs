@@ -82,5 +82,27 @@ namespace CozyFileServive.Application.UnitTests.ManageFiles.Commands
             var totalFiles = await _mockUploadedFileRepository.Object.GetAllAsync();
             Assert.Equal(4, totalFiles.Count);
         }
+
+        [Fact]
+        public async Task Handle_InvalidCreateFileCommandRequest_ReturnsValidationErrors()
+        {
+            // Arrange
+            var createFileCommand = new CreateFileCommand(); // Command with missing required properties
+            var handler = new CreateFileCommandHandler(_mapper,
+                _mockUploadedFileRepository.Object,
+                _mockEmailService.Object,
+                _mockLogger.Object,
+                _mockFileStorageService.Object,
+                _mockLoggedInUserService.Object);
+
+            // Act
+            var response = await handler.Handle(createFileCommand, CancellationToken.None);
+
+            // Assert
+            Assert.NotNull(response);
+            Assert.False(response.Success);
+            Assert.NotNull(response.ValidationErrors);
+            Assert.NotEmpty(response.ValidationErrors);
+        }
     }
 }
