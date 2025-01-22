@@ -37,6 +37,6 @@ jobs:
         # Additional arguments to the Sonar Scanner CLI
         projectBaseDir: app/src
         args: >
-          -Dsonar.organization=my-organization
-          -Dsonar.projectKey=my-projectkey
+          -Dsonar.organization=anawat-github
+          -Dsonar.projectKey=cozy-file-service
           -Dsonar.python.coverage.reportPaths=coverage.xml
